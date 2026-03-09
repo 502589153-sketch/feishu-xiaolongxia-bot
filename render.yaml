@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: longxia-feishu-bot
+    env: docker
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    healthCheckPath: /healthz
+    envVars:
+      - key: PORT
+        value: "9000"
+      - key: FEISHU_BOT_HOST
+        value: "0.0.0.0"
+      - key: FEISHU_BOT_PORT
+        value: "9000"
+      - key: FEISHU_BOT_MODE
+        value: "auto"
+      - key: FEISHU_CONTEXT_TURNS
+        value: "8"
+      - key: FEISHU_BOT_REPLY_PREFIX
+        value: "龙虾已收到："
+      - key: FEISHU_OPENAI_BASE_URL
+        value: "https://api.openai.com/v1"
+      - key: FEISHU_OPENAI_MODEL
+        value: "gpt-4o-mini"
+      - key: FEISHU_OPENAI_TIMEOUT_SEC
+        value: "25"
+      - key: FEISHU_APP_ID
+        sync: false
+      - key: FEISHU_APP_SECRET
+        sync: false
+      - key: FEISHU_APP_VERIFICATION_TOKEN
+        sync: false
+      - key: FEISHU_OPENAI_API_KEY
+        sync: false

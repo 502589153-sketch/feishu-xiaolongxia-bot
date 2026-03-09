@@ -1,0 +1,17 @@
+services:
+  longxia-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: longxia-bot
+    env_file:
+      - .env.feishu
+    environment:
+      FEISHU_BOT_HOST: 0.0.0.0
+      FEISHU_BOT_PORT: 9000
+      FEISHU_STATE_FILE: /data/state.json
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./data:/data
+    restart: always
